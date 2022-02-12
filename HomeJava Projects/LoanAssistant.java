@@ -35,7 +35,7 @@ public class LoanAssistant extends JFrame {
         this.setResizable(false);
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-        this.setBounds((int) (0.5 * (screenSize.width - getWidth())), (int) (0.5 * (screenSize.height - getHeight())),
+        this.setBounds((int) (0.4 * (screenSize.width - getWidth())), (int) (0.4 * (screenSize.height - getHeight())),
                 getWidth(), getHeight());
         ImageIcon icon=new ImageIcon("HomeJava Projects/loanIcon.png");
         this.setIconImage(icon.getImage());
@@ -43,6 +43,7 @@ public class LoanAssistant extends JFrame {
 
         balanceLabel.setText("Loan Balance");
         balanceLabel.setFont(myFont);
+        balanceLabel.setForeground(Color.BLACK);
         // change text color of label in validating balance method
         gridConstraints = new GridBagConstraints();
         gridConstraints.gridx = 0;
@@ -54,6 +55,7 @@ public class LoanAssistant extends JFrame {
         balanceTextField.setPreferredSize(new Dimension(100, 25));
         balanceTextField.setHorizontalAlignment(SwingConstants.RIGHT);
         balanceTextField.setFont(myFont);
+        balanceTextField.setBorder(BorderFactory.createLineBorder(Color.BLACK));
         balanceTextField.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 balanceTextFieldActionPerformed(e);
@@ -67,6 +69,7 @@ public class LoanAssistant extends JFrame {
 
         interestLabel.setText("Interest Rate");
         interestLabel.setFont(myFont);
+        interestLabel.setForeground(Color.BLACK);
         gridConstraints = new GridBagConstraints();
         gridConstraints.gridx = 0;
         gridConstraints.gridy = 1;
@@ -77,6 +80,7 @@ public class LoanAssistant extends JFrame {
         interestTextField.setPreferredSize(new Dimension(100, 25));
         interestTextField.setHorizontalAlignment(SwingConstants.RIGHT);
         interestTextField.setFont(myFont);
+        interestTextField.setBorder(BorderFactory.createLineBorder(Color.BLACK));
         interestTextField.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 interestTextFieldActionPerformed(e);
@@ -90,6 +94,7 @@ public class LoanAssistant extends JFrame {
 
         monthsLabel.setText("Number of Payments");
         monthsLabel.setFont(myFont);
+        monthsLabel.setForeground(Color.BLACK);
         gridConstraints = new GridBagConstraints();
         gridConstraints.gridx = 0;
         gridConstraints.gridy = 2;
@@ -100,6 +105,7 @@ public class LoanAssistant extends JFrame {
         monthsTextField.setPreferredSize(new Dimension(100, 25));
         monthsTextField.setHorizontalAlignment(SwingConstants.RIGHT);
         monthsTextField.setFont(myFont);
+        monthsTextField.setBorder(BorderFactory.createLineBorder(Color.BLACK));
         monthsTextField.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 monthsTextFieldActionPerformed(e);
@@ -113,6 +119,7 @@ public class LoanAssistant extends JFrame {
 
         paymentLabel.setText("Monthly Payment");
         paymentLabel.setFont(myFont);
+        paymentLabel.setForeground(Color.BLACK);
         gridConstraints = new GridBagConstraints();
         gridConstraints.gridx = 0;
         gridConstraints.gridy = 3;
@@ -123,6 +130,7 @@ public class LoanAssistant extends JFrame {
         paymentTextField.setPreferredSize(new Dimension(100, 25));
         paymentTextField.setHorizontalAlignment(SwingConstants.RIGHT);
         paymentTextField.setFont(myFont);
+        paymentTextField.setBorder(BorderFactory.createLineBorder(Color.BLACK));
         paymentTextField.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 paymentTextFieldActionPerformed(e);
@@ -203,6 +211,7 @@ public class LoanAssistant extends JFrame {
 
         analysisLabel.setText("Loan Analysis:");
         analysisLabel.setFont(myFont);
+        analysisLabel.setForeground(Color.black);
         gridConstraints = new GridBagConstraints();
         gridConstraints.gridx = 3;
         gridConstraints.gridy = 0;
@@ -304,7 +313,9 @@ public class LoanAssistant extends JFrame {
         monthsTextField.setFocusable(true);
         computeButton.setText("Compute Loan Balance");
         interestTextField.requestFocus();
-
+        balanceLabel.setForeground(Color.BLACK);
+        monthsLabel.setForeground(Color.BLACK);
+        paymentLabel.setForeground(Color.BLACK);
     }
 
     private void monthsButtonActionPerformed(ActionEvent e) {
@@ -321,6 +332,9 @@ public class LoanAssistant extends JFrame {
         paymentTextField.setFocusable(true);
         computeButton.setText("Compute Number of Payments");
         balanceTextField.requestFocus();
+        balanceLabel.setForeground(Color.BLACK);
+        monthsLabel.setForeground(Color.BLACK);
+        paymentLabel.setForeground(Color.BLACK);
     }
 
     private void paymentButtonActionPerformed(ActionEvent e) {
@@ -340,6 +354,9 @@ public class LoanAssistant extends JFrame {
         balanceTextField.setFocusable(true);
         computeButton.setText("Compute Monthly Payment");
         balanceTextField.requestFocus();
+        balanceLabel.setForeground(Color.BLACK);
+        monthsLabel.setForeground(Color.BLACK);
+        paymentLabel.setForeground(Color.BLACK);
     }
 
     private void computeButtonActionPerformed(ActionEvent e) {
@@ -347,10 +364,12 @@ public class LoanAssistant extends JFrame {
         int months;
         double loanBalance, finalPayment;
         if (validateDecimalNumber(interestTextField)) {
+            interestLabel.setForeground(Color.BLACK);
             interest = Double.valueOf(interestTextField.getText()).doubleValue();
         } else {
             JOptionPane.showConfirmDialog(null, "Invalid or empty Interest Rate.\nPlease correct.","InterestInput Error", JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE);
             interestTextField.setText("");
+            interestLabel.setForeground(Color.RED);
             return;
         }
         monthlyInterest = interest / 1200;
@@ -359,16 +378,20 @@ public class LoanAssistant extends JFrame {
 
             if (validateDecimalNumber(balanceTextField)&& Double.valueOf(balanceTextField.getText()).doubleValue()!=0) {
                 balance = Double.valueOf(balanceTextField.getText()).doubleValue();
+                balanceLabel.setForeground(Color.BLACK);
             } else {
                 JOptionPane.showConfirmDialog(null, "Invalid or empty Loan Balance entry.\nPlease correct.","Balance Input Error", JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE);
                 balanceTextField.setText("");
+                balanceLabel.setForeground(Color.RED);
                 return;
             }
             if (validateDecimalNumber(monthsTextField)&& Double.valueOf(monthsTextField.getText()).doubleValue()!=0) {
                 months = Integer.valueOf(monthsTextField.getText()).intValue();
+                monthsLabel.setForeground(Color.BLACK);
             } else {
                 JOptionPane.showConfirmDialog(null, "Invalid or empty Number of Payments entry.\nPlease correct.","Number of Payments Input Error", JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE);
                 monthsTextField.setText("");
+                monthsLabel.setForeground(Color.RED);
                 return;
             }
 
@@ -385,13 +408,16 @@ public class LoanAssistant extends JFrame {
         else if(computePayment==0){
             if (validateDecimalNumber(balanceTextField)&& Double.valueOf(balanceTextField.getText()).doubleValue()!=0) {
                 balance = Double.valueOf(balanceTextField.getText()).doubleValue();
+                balanceLabel.setForeground(Color.BLACK);
             } else {
                 JOptionPane.showConfirmDialog(null, "Invalid or empty Loan Balance entry.\nPlease correct.","Balance Input Error", JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE);
                 balanceTextField.setText("");
+                balanceLabel.setForeground(Color.RED);
                 return;
             }
             if (validateDecimalNumber(paymentTextField)) {
                 payment = Double.valueOf(paymentTextField.getText()).doubleValue();
+                paymentLabel.setForeground(Color.BLACK);
                 if (payment <= balance * monthlyInterest + 1.0) {
                     if (JOptionPane.showConfirmDialog(null,"Minimum payment must be $"+ new DecimalFormat("0.00").format((int) (balance * monthlyInterest + 1.0)) + "\n"+ "Do you want to use the minimum payment?","Input Error", JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE) == JOptionPane.YES_OPTION) {
                         paymentTextField
@@ -405,6 +431,7 @@ public class LoanAssistant extends JFrame {
             } else {
                 JOptionPane.showConfirmDialog(null, "Invalid or empty Monthly Payment entry.\nPlease correct.","Monthly Payment Input Error", JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE);
                 paymentTextField.setText("");
+                paymentLabel.setForeground(Color.RED);
                 return;
             }
             if (interest == 0) {
@@ -419,16 +446,20 @@ public class LoanAssistant extends JFrame {
         else{
             if (validateDecimalNumber(monthsTextField)&& Double.valueOf(monthsTextField.getText()).doubleValue()!=0) {
                 months = Integer.valueOf(monthsTextField.getText()).intValue();
+                monthsLabel.setForeground(Color.BLACK);
             } else {
                 JOptionPane.showConfirmDialog(null, "Invalid or empty Number of Payments entry.\nPlease correct.","Number of Payments Input Error", JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE);
                 monthsTextField.setText("");
+                monthsLabel.setForeground(Color.RED);
                 return;
             }
             if (validateDecimalNumber(paymentTextField)&& Double.valueOf(paymentTextField.getText()).doubleValue()!=0) {
                 payment = Double.valueOf(paymentTextField.getText()).doubleValue();
+                paymentLabel.setForeground(Color.BLACK);
             } else {
                 JOptionPane.showConfirmDialog(null, "Invalid or empty Monthly Payment entry.\nPlease correct.","Monthly Payment Input Error", JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE);
                 paymentTextField.setText("");
+                paymentLabel.setForeground(Color.RED);
                 return;
             }
             if (interest == 0) {
@@ -462,7 +493,7 @@ public class LoanAssistant extends JFrame {
                 "\n" + "Total Payments: $" + new DecimalFormat("0.00").format((months - 1) * payment + finalPayment));
         analysisTextArea.append("\n" + "Interest Paid $"
                 + new DecimalFormat("0.00").format((months - 1) * payment + finalPayment - balance));
-        DateFormat df=new SimpleDateFormat("yyyy/MMM/dd");
+        DateFormat df=new SimpleDateFormat("yyyy/MMM");
         Calendar cal=Calendar.getInstance();
         cal.set(Calendar.DATE, 1);
         cal.add(Calendar.MONTH, months);
