@@ -1,3 +1,4 @@
+package LoanAssistant;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -37,7 +38,7 @@ public class LoanAssistant extends JFrame {
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         this.setBounds((int) (0.4 * (screenSize.width - getWidth())), (int) (0.4 * (screenSize.height - getHeight())),
                 getWidth(), getHeight());
-        ImageIcon icon=new ImageIcon("HomeJava Projects/loanIcon.png");
+        ImageIcon icon=new ImageIcon("HomeJava Projects/LoanAssistant/loanIcon.png");
         this.setIconImage(icon.getImage());
         GridBagConstraints gridConstraints;
 

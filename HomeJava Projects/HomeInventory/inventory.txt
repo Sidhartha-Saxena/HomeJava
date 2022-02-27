@@ -1,0 +1,57 @@
+5
+Bicycle
+Park
+TREK943793793
+true
+5000
+05/10/2019
+Aurora Cycle, Seattle
+Gear Bike
+C:\Users\siddh\HomeJava\HomeJava Projects\HomeInventory\inventoryPhotos\Bicycle.jpg
+Car
+Basement
+TREK9433432
+true
+50000000
+03/05/2022
+Porshe, Seattle
+Car
+C:\Users\siddh\HomeJava\HomeJava Projects\HomeInventory\inventoryPhotos\Car.jpg
+Couch
+Living Room
+FK1213312
+false
+200000
+04/01/2021
+PeperFry
+Comfy couch
+C:\Users\siddh\HomeJava\HomeJava Projects\HomeInventory\inventoryPhotos\couch.jpg
+Laptop
+Desk
+LEV23K213AD13
+true
+2000000
+02/29/2020
+Amazon.com
+best purchase made so far
+C:\Users\siddh\HomeJava\HomeJava Projects\HomeInventory\inventoryPhotos\Laptop.jpg
+TV
+Living Room
+MI2834KAN
+true
+40000
+03/01/2020
+Amazon
+Good Tv
+C:\Users\siddh\HomeJava\HomeJava Projects\HomeInventory\inventoryPhotos\TV.jpg
+10
+Always Lost
+Basement
+Driveway
+Living Room
+My Office
+Kitchen
+Furnace Room
+Desk
+Park
+Home

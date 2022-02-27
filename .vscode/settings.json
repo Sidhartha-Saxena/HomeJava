@@ -1,0 +1,9 @@
+{
+    "java.project.referencedLibraries": [
+        "lib/**/*.jar",
+        "c:\\java\\Jcalander\\lib\\jcalendar-1.4.jar",
+        "c:\\java\\Jcalander\\lib\\jgoodies-common-1.2.0.jar",
+        "c:\\java\\Jcalander\\lib\\jgoodies-looks-2.4.1.jar",
+        "c:\\java\\Jcalander\\lib\\junit-4.6.jar"
+    ]
+}
